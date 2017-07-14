@@ -181,7 +181,7 @@ $(function() {
     bind_event($table, images);
   }
 
-  var image_urls = [
+  var sample_images = [
     "https://s-media-cache-ak0.pinimg.com/236x/9b/a2/57/9ba25796112cad616be27e473ae1e149--kids-cartoon-characters-childhood-characters.jpg",
     "https://s-media-cache-ak0.pinimg.com/236x/c9/8e/e4/c98ee48d53c7b9e1ba07b5b4824e55c0--mickey-mouse-cartoon-cartoon-disney.jpg",
     "https://s-media-cache-ak0.pinimg.com/236x/9b/16/3d/9b163ddd863acb25fd4a93fba727280d--old-cartoons-vintage-cartoons.jpg",
@@ -193,7 +193,13 @@ $(function() {
     var $table = $('#board').empty();
     var rows = $('#rows').val() || 5;
     var cols = $('#columns').val() || 6;
-    new_game($table, rows, cols, image_urls);
+    var urls = $('input[type="url"]').map(function() {
+      return $(this).val();
+    }).get().filter(function(x) { return x; });
+    if (urls.length == 0) {
+      urls = sample_images;
+    }
+    new_game($table, rows, cols, urls);
   });
 
 });
