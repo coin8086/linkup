@@ -189,5 +189,11 @@ $(function() {
     "https://s-media-cache-ak0.pinimg.com/236x/1a/77/07/1a770728c9682c885c479a7149abcad4--tom-and-jerry-jerry-oconnell.jpg",
   ];
 
-  new_game($('#board'), 5, 6, image_urls);
+  $('#generate').click(function() {
+    var $table = $('#board').empty();
+    var rows = $('#rows').val() || 5;
+    var cols = $('#columns').val() || 6;
+    new_game($table, rows, cols, image_urls);
+  });
+
 });
