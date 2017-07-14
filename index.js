@@ -61,6 +61,8 @@ $(function() {
 
   function bind_event($table, images) {
     var $prev = null;
+    var link_sound = $('#link-sound').get(0);
+    var applause_sound = $('#applause-sound').get(0);
     $table.find('td').click(function() {
       var $this = $(this);
       var index = $this.data('index');
@@ -71,6 +73,7 @@ $(function() {
           var prev_url = $prev.find('img').attr('src');
           var url = $this.find('img').attr('src');
           if (prev_url && url && prev_url == url && linkable(images, prev_index, index)) {
+            link_sound.play();
             $prev.find('img').remove();
             $this.find('img').remove();
             clear(images, prev_index);
@@ -88,7 +91,8 @@ $(function() {
         $prev = null;
       }
       if (over(images)) {
-        alert("Congrats!");
+        applause_sound.play();
+        confirm("Congrats!");
       }
     });
   }
