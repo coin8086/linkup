@@ -200,6 +200,9 @@ $(function() {
       urls = sample_images;
     }
     new_game($table, rows, cols, urls);
+    //Set width after table is generated.
+    var width = $('#width').val() || 100;
+    $table.find('td').css('width', width + 'px');
   });
 
 });
