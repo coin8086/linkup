@@ -1,0 +1,11 @@
+td {
+  border: 4px groove;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  text-align: center;
+}
+
+td img {
+  width: 100%;
+}
