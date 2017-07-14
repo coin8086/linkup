@@ -133,10 +133,12 @@ $(function() {
             var x = i + d[k][0] * s;
             var y = j + d[k][1] * s;
             var l = x * n + y;
-            if (x >= 0 && x < m && y >= 0 && y < n && !b[x][y] && !found[l]) {
-              q.push(l);
-              found[l] = true;
-              turn[l] = turn[p] + 1;
+            if (x >= 0 && x < m && y >= 0 && y < n && !b[x][y] && (!found[l] || turn[l] > turn[p])) {
+              if (!found[l]) {
+                q.push(l);
+                found[l] = true;
+                turn[l] = turn[p] + 1;
+              }
             }
             else {
               stop[k] = true;
@@ -184,7 +186,8 @@ $(function() {
     "https://s-media-cache-ak0.pinimg.com/236x/c9/8e/e4/c98ee48d53c7b9e1ba07b5b4824e55c0--mickey-mouse-cartoon-cartoon-disney.jpg",
     "https://s-media-cache-ak0.pinimg.com/236x/9b/16/3d/9b163ddd863acb25fd4a93fba727280d--old-cartoons-vintage-cartoons.jpg",
     "https://s-media-cache-ak0.pinimg.com/236x/4b/f1/01/4bf101536015f85d9a91f318a6405627--tom-jerry-iron-on-transfer.jpg",
+    "https://s-media-cache-ak0.pinimg.com/236x/1a/77/07/1a770728c9682c885c479a7149abcad4--tom-and-jerry-jerry-oconnell.jpg",
   ];
 
-  new_game($('#board'), 5, 5, image_urls);
+  new_game($('#board'), 5, 6, image_urls);
 });
