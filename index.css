@@ -25,3 +25,7 @@
   float: right;
   margin-right: 1em;
 }
+
+.template {
+  display: none;
+}

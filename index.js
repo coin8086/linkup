@@ -202,8 +202,8 @@ $(function() {
     var rows = $('#rows', $form).val();
     var cols = $('#cols', $form).val();
     var width = $('#width', $form).val();
-    var urls = $('input[type="url"]', $form).map(function() {
-      return $(this).val();
+    var urls = $('.image-url', $form).not('.template').map(function() {
+      return $('input', this).val();
     }).get().filter(function(x) { return x; });
     return { rows: rows, cols: cols, width: width, urls: urls};
   }
@@ -217,11 +217,38 @@ $(function() {
     if (params.width)
       $('#width', $form).val(params.width);
     if (params.urls && params.urls.length > 0) {
+      var count = count_image_inputs($form);
+      if (count < params.urls.length) {
+        var n = Math.ceil(params.urls.length / 5) * 5;
+        add_image_inputs($form, n - count);
+      }
       for (var i = 0; i < params.urls.length; i++) {
         $('#url' + (i + 1), $form).val(params.urls[i]);
       }
     }
   }
+
+  function count_image_inputs($form) {
+    return $form.find('.image-url').not('.template').size();
+  }
+
+  function add_image_inputs($form, num) {
+    var count = count_image_inputs($form);
+    var $template = $form.find('.template.image-url');
+    for (var i = 0; i < num; i++) {
+      count++;
+      var id = 'url' + count;
+      var $clone = $template.clone().removeClass('template');
+      $clone.find('label').attr('for', id).text('Image ' + count);
+      $clone.find('input').attr('id', id);
+      $clone.insertBefore($template);
+    }
+  }
+
+  $('#more-images').click(function() {
+    add_image_inputs($('#controls'), 5);
+    return false;
+  });
 
   $('#play').click(function() {
     var $table = $('#board').empty();
