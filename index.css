@@ -1,11 +1,18 @@
-td {
+#board {
+  border-collapse: separate;
+  border-spacing: 2px;
+  margin: 1em auto ;
+}
+
+#board td {
   border: 4px groove;
+  padding: 1px;
   width: 100px;
   height: 100px;
   overflow: hidden;
   text-align: center;
 }
 
-td img {
+#board td img {
   width: 100%;
 }

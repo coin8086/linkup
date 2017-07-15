@@ -1,59 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Link Up!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-  <table id="board">
-  </table>
+  <div id="body" class="container-fluid">
+    <table id="board">
+    </table>
 
-  <div id="controls">
-    <label for="rows">Rows</label>
-    <input type="number" min="2" max="10" name="rows" id="rows" value="5" />
-    <label for="columns">Columns</label>
-    <input type="number" min="2" max="10" name="columns" id="columns" value="6" />
-    <br />
-    <label for="width">Image Width</label>
-    <input type="number" min="50" max="300" name="width" id="width" value="100" />
-    <br />
-    <label for="url1">Image 1</label>
-    <input type="url" name="url" id="url1" />
-    <br />
-    <label for="url2">Image 2</label>
-    <input type="url" name="url" id="url2" />
-    <br />
-    <label for="url3">Image 3</label>
-    <input type="url" name="url" id="url3" />
-    <br />
-    <label for="url4">Image 4</label>
-    <input type="url" name="url" id="url4" />
-    <br />
-    <label for="url5">Image 5</label>
-    <input type="url" name="url" id="url5" />
-    <br />
-    <label for="url6">Image 6</label>
-    <input type="url" name="url" id="url6" />
-    <br />
-    <label for="url7">Image 7</label>
-    <input type="url" name="url" id="url7" />
-    <br />
-    <label for="url8">Image 8</label>
-    <input type="url" name="url" id="url8" />
-    <br />
-    <label for="url9">Image 9</label>
-    <input type="url" name="url" id="url9" />
-    <br />
-    <label for="url10">Image 10</label>
-    <input type="url" name="url" id="url10" />
-    <br />
-    <button id="generate">Generate</button>
+    <div id="controls" class="form form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="rows">Rows</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="number" min="2" max="10" name="rows" id="rows" value="5" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="columns">Columns</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="number" min="2" max="10" name="columns" id="columns" value="6" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="width">Image Width</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="number" min="50" max="300" name="width" id="width" value="100" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="url1">Image 1</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="url" name="url" id="url1" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="url2">Image 2</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="url" name="url" id="url2" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="url3">Image 3</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="url" name="url" id="url3" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="url4">Image 4</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="url" name="url" id="url4" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label" for="url5">Image 5</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="url" name="url" id="url5" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button id="generate" class="btn btn-default">Generate</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <audio id="link-sound" src="https://www.soundjay.com/button/sounds/button-30.mp3"></audio>
   <audio id="applause-sound" src="https://www.soundjay.com/human/sounds/applause-8.mp3"></audio>
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="index.js"></script>
 </body>
 </html>
