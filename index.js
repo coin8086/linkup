@@ -185,30 +185,81 @@ $(function() {
     bind_event($table, images);
   }
 
-  var sample_images = [
-    "https://s-media-cache-ak0.pinimg.com/236x/9b/a2/57/9ba25796112cad616be27e473ae1e149--kids-cartoon-characters-childhood-characters.jpg",
-    "https://s-media-cache-ak0.pinimg.com/236x/c9/8e/e4/c98ee48d53c7b9e1ba07b5b4824e55c0--mickey-mouse-cartoon-cartoon-disney.jpg",
-    "https://s-media-cache-ak0.pinimg.com/236x/9b/16/3d/9b163ddd863acb25fd4a93fba727280d--old-cartoons-vintage-cartoons.jpg",
-    "https://s-media-cache-ak0.pinimg.com/236x/4b/f1/01/4bf101536015f85d9a91f318a6405627--tom-jerry-iron-on-transfer.jpg",
-    "https://s-media-cache-ak0.pinimg.com/236x/1a/77/07/1a770728c9682c885c479a7149abcad4--tom-and-jerry-jerry-oconnell.jpg",
-  ];
+  var default_params = {
+    rows: 5,
+    cols: 6,
+    width: 100,
+    urls: [
+      "https://s-media-cache-ak0.pinimg.com/236x/9b/a2/57/9ba25796112cad616be27e473ae1e149--kids-cartoon-characters-childhood-characters.jpg",
+      "https://s-media-cache-ak0.pinimg.com/236x/c9/8e/e4/c98ee48d53c7b9e1ba07b5b4824e55c0--mickey-mouse-cartoon-cartoon-disney.jpg",
+      "https://s-media-cache-ak0.pinimg.com/236x/9b/16/3d/9b163ddd863acb25fd4a93fba727280d--old-cartoons-vintage-cartoons.jpg",
+      "https://s-media-cache-ak0.pinimg.com/236x/4b/f1/01/4bf101536015f85d9a91f318a6405627--tom-jerry-iron-on-transfer.jpg",
+      "https://s-media-cache-ak0.pinimg.com/236x/1a/77/07/1a770728c9682c885c479a7149abcad4--tom-and-jerry-jerry-oconnell.jpg",
+    ],
+  };
+
+  function get_params($form) {
+    var rows = $('#rows', $form).val();
+    var cols = $('#cols', $form).val();
+    var width = $('#width', $form).val();
+    var urls = $('input[type="url"]', $form).map(function() {
+      return $(this).val();
+    }).get().filter(function(x) { return x; });
+    return { rows: rows, cols: cols, width: width, urls: urls};
+  }
+
+  function set_params($form, params) {
+    $form.get(0).reset();
+    if (params.rows)
+      $('#rows', $form).val(params.rows);
+    if (params.cols)
+      $('#cols', $form).val(params.cols);
+    if (params.width)
+      $('#width', $form).val(params.width);
+    if (params.urls && params.urls.length > 0) {
+      for (var i = 0; i < params.urls.length; i++) {
+        $('#url' + (i + 1), $form).val(params.urls[i]);
+      }
+    }
+  }
 
   $('#play').click(function() {
     var $table = $('#board').empty();
-    var rows = $('#rows').val() || 5;
-    var cols = $('#columns').val() || 6;
-    var urls = $('input[type="url"]').map(function() {
-      return $(this).val();
-    }).get().filter(function(x) { return x; });
-    if (urls.length == 0) {
-      urls = sample_images;
+    var params = get_params($('#controls'));
+    for (var k in params) {
+      if (!params[k] || params[k].length == 0)
+        params[k] = default_params[k];
     }
-    new_game($table, rows, cols, urls);
+    new_game($table, params.rows, params.cols, params.urls);
     //Set width after table is generated.
-    var width = $('#width').val() || 100;
-    $table.find('td').css('width', width + 'px');
+    $table.find('td').css('width', params.width + 'px');
     //Scroll to game board
     document.location = '#board';
+    return false;
   });
+
+  $('#save').click(function() {
+    var params = get_params($('#controls'));
+    var json = JSON.stringify(params);
+    localStorage.setItem('params', json);
+    return false;
+  });
+
+  $('#load').click(function() {
+    var json = localStorage.getItem('params');
+    if (json) {
+      var params = JSON.parse(json);
+      set_params($('#controls'), params);
+    }
+    else {
+      alert("No saved params to load!");
+    }
+    return false;
+  });
+
+  $('#load-default').click(function() {
+    set_params($('#controls'), default_params);
+    return false;
+  }).click();
 
 });

@@ -16,3 +16,12 @@
 #board td img {
   width: 100%;
 }
+
+#controls .right {
+  float: right;
+}
+
+#controls .right + .right {
+  float: right;
+  margin-right: 1em;
+}

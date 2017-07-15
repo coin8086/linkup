@@ -14,23 +14,23 @@
     <table id="board">
     </table>
 
-    <div id="controls" class="form form-horizontal">
+    <form id="controls" class="form-horizontal">
       <div class="form-group">
         <label class="col-sm-2 control-label" for="rows">Rows</label>
         <div class="col-sm-8">
-          <input class="form-control" type="number" min="2" max="10" name="rows" id="rows" value="5" />
+          <input class="form-control" type="number" min="2" max="10" name="rows" id="rows" />
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 control-label" for="columns">Columns</label>
+        <label class="col-sm-2 control-label" for="cols">Columns</label>
         <div class="col-sm-8">
-          <input class="form-control" type="number" min="2" max="10" name="columns" id="columns" value="6" />
+          <input class="form-control" type="number" min="2" max="10" name="cols" id="cols" />
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-2 control-label" for="width">Image Width</label>
         <div class="col-sm-8">
-          <input class="form-control" type="number" min="50" max="300" name="width" id="width" value="100" />
+          <input class="form-control" type="number" min="50" max="300" name="width" id="width" />
         </div>
       </div>
       <div class="form-group">
@@ -65,10 +65,13 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-8">
+          <button id="save" class="btn btn-default right">Save</button>
+          <button id="load" class="btn btn-default right">Load</button>
+          <button id="load-default" class="btn btn-default right">Load Default</button>
           <button id="play" class="btn btn-default">Play</button>
         </div>
       </div>
-    </div>
+    </form>
 
   </div>
 
