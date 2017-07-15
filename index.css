@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+#controls .preview {
+  max-height: 80px;
+}
+
 #controls .right {
   float: right;
 }

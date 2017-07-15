@@ -223,7 +223,7 @@ $(function() {
         add_image_inputs($form, n - count);
       }
       for (var i = 0; i < params.urls.length; i++) {
-        $('#url' + (i + 1), $form).val(params.urls[i]);
+        $('#url' + (i + 1), $form).val(params.urls[i]).change();
       }
     }
   }
@@ -240,7 +240,10 @@ $(function() {
       var id = 'url' + count;
       var $clone = $template.clone().removeClass('template');
       $clone.find('label').attr('for', id).text('Image ' + count);
-      $clone.find('input').attr('id', id);
+      $clone.find('input').attr('id', id).change(function() {
+        var $this = $(this);
+        $this.closest('.form-group').find('.preview').attr('src', $this.val());
+      });
       $clone.insertBefore($template);
     }
   }
