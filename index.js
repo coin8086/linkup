@@ -187,14 +187,17 @@ $(function() {
 
   var default_params = {
     rows: 5,
-    cols: 6,
+    cols: 8,
     width: 100,
     urls: [
-      "https://s-media-cache-ak0.pinimg.com/236x/9b/a2/57/9ba25796112cad616be27e473ae1e149--kids-cartoon-characters-childhood-characters.jpg",
-      "https://s-media-cache-ak0.pinimg.com/236x/c9/8e/e4/c98ee48d53c7b9e1ba07b5b4824e55c0--mickey-mouse-cartoon-cartoon-disney.jpg",
-      "https://s-media-cache-ak0.pinimg.com/236x/9b/16/3d/9b163ddd863acb25fd4a93fba727280d--old-cartoons-vintage-cartoons.jpg",
-      "https://s-media-cache-ak0.pinimg.com/236x/4b/f1/01/4bf101536015f85d9a91f318a6405627--tom-jerry-iron-on-transfer.jpg",
-      "https://s-media-cache-ak0.pinimg.com/236x/1a/77/07/1a770728c9682c885c479a7149abcad4--tom-and-jerry-jerry-oconnell.jpg",
+      "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_5.jpg",
+      "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_8.jpeg",
+      "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_9.png",
+      "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_6.jpeg",
+      "http://img4q.duitang.com/uploads/item/201408/09/20140809152759_APyBA.thumb.700_0.jpeg",
+      "https://b-ssl.duitang.com/uploads/item/201407/18/20140718143545_FPKvR.png",
+      "http://cgwall.cn/upload/2014/08/0829PhC0JtQU2oI92SX-1.jpg",
+      "http://s9.sinaimg.cn/middle/69309e56g8d3241d035d8&690&690",
     ],
   };
 
