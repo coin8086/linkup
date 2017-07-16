@@ -92,7 +92,7 @@ $(function() {
       }
       if (over(images)) {
         applause_sound.play();
-        confirm("Congrats!");
+        confirm("恭喜!");
       }
     });
   }
@@ -238,7 +238,7 @@ $(function() {
       count++;
       var id = 'url' + count;
       var $clone = $template.clone().removeClass('template');
-      $clone.find('label').attr('for', id).text('Image ' + count);
+      $clone.find('label').attr('for', id).text('图片' + count);
       $clone.find('input').attr('id', id).change(function() {
         var $this = $(this);
         $this.closest('.form-group').find('.preview').attr('src', $this.val());
