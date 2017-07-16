@@ -216,12 +216,11 @@ $(function() {
       $('#cols', $form).val(params.cols);
     if (params.width)
       $('#width', $form).val(params.width);
+
+    $form.find('.image-url').not('.template').remove();
     if (params.urls && params.urls.length > 0) {
-      var count = count_image_inputs($form);
-      if (count < params.urls.length) {
-        var n = Math.ceil(params.urls.length / 5) * 5;
-        add_image_inputs($form, n - count);
-      }
+      var n = Math.ceil(params.urls.length / 5) * 5;
+      add_image_inputs($form, n);
       for (var i = 0; i < params.urls.length; i++) {
         $('#url' + (i + 1), $form).val(params.urls[i]).change();
       }
@@ -279,17 +278,16 @@ $(function() {
     var json = localStorage.getItem('params');
     if (json) {
       var params = JSON.parse(json);
-      set_params($('#controls'), params);
     }
     else {
-      alert("No saved params to load!");
+      var params = default_params;
     }
+    set_params($('#controls'), params);
     return false;
-  });
+  }).click();
 
   $('#load-default').click(function() {
     set_params($('#controls'), default_params);
     return false;
-  }).click();
-
+  });
 });
