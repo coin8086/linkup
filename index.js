@@ -187,7 +187,7 @@ $(function() {
 
   var default_params = {
     rows: 5,
-    cols: 8,
+    cols: 6,
     width: 100,
     urls: [
       "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_5.jpg",
@@ -195,9 +195,7 @@ $(function() {
       "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_9.png",
       "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_6.jpeg",
       "http://img4q.duitang.com/uploads/item/201408/09/20140809152759_APyBA.thumb.700_0.jpeg",
-      "https://b-ssl.duitang.com/uploads/item/201407/18/20140718143545_FPKvR.png",
       "http://cgwall.cn/upload/2014/08/0829PhC0JtQU2oI92SX-1.jpg",
-      "http://s9.sinaimg.cn/middle/69309e56g8d3241d035d8&690&690",
     ],
   };
 
