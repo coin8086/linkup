@@ -2,7 +2,7 @@ $(function() {
   "use strict";
 
   function shuffle(array) {
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 7; i++) {
       for (var k = 0; k < array.length; k++) {
         var r = Math.floor(Math.random() * 1000 % array.length);
         if (r != k) {
@@ -186,8 +186,8 @@ $(function() {
   }
 
   var default_params = {
-    rows: 5,
-    cols: 6,
+    rows: 6,
+    cols: 8,
     width: 100,
     urls: [
       "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_5.jpg",
@@ -196,6 +196,10 @@ $(function() {
       "http://img.qq1234.org/uploads/allimg/140705/5_140705210128_6.jpeg",
       "http://img4q.duitang.com/uploads/item/201408/09/20140809152759_APyBA.thumb.700_0.jpeg",
       "http://cgwall.cn/upload/2014/08/0829PhC0JtQU2oI92SX-1.jpg",
+      "http://v1.qzone.cc/avatar/201408/18/12/36/53f182cc4a338603.jpg%21200x200.jpg",
+      "http://v1.qzone.cc/avatar/201506/28/14/24/558f930ac6e64907.png%21200x200.jpg",
+      "http://file.popoho.com/wzfzl/20160706/2qooxc0li5tco140G9101332-2.jpg",
+      "http://img1.imgtn.bdimg.com/it/u=628757074,608161314&fm=214&gp=0.jpg",
     ],
   };
 
